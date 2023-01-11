@@ -1,5 +1,11 @@
+/**
+ * Modelo de datos de la ropa
+ * 
+ * 
+ * 
+ */ 
 export class Modelo{
-    constructor(){
-        
+    constructor(nombre){
+        this.nombre = nombre
 	}
 }
