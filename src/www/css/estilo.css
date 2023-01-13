@@ -162,3 +162,6 @@ main#datos div.botones span#volver{
 main#datos div.botones span#editar{
     background-color: lightgreen;
 }
+#listado,#edicion,#alta,#consulta{
+    display: none;
+}
