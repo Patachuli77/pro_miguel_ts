@@ -100,16 +100,16 @@ main#alta div.botones{
     margin-top: 30px;
     gap:20px;
 }
-main#alta div.botones a span{
+main#alta div.botones button{
     padding: 10px;
     border-radius: 4px;
     text-align: center;
    
 }
-main#alta div.botones span#cancelar{
+main#alta div.botones button#cancelar{
     background-color: red;
 }
-main#alta div.botones span.aceptar{
+main#alta div.botones button.aceptar{
     background-color: lightgreen;
 }
 /************EDITAR*****************/
@@ -162,6 +162,6 @@ main#datos div.botones span#volver{
 main#datos div.botones span#editar{
     background-color: lightgreen;
 }
-#listado,#edicion,#alt,#consulta{
+#listado,#edicion,#alta,#consulta{
     display: none;
 }

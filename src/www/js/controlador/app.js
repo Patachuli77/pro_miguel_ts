@@ -2,13 +2,13 @@
 	@file Contiene el controlador principal de la aplicación
 	@author	Jorge Ortega <jorge77.ortega@gmail.com>
 **/
-import {Modelo} from './modelo.js'
+import {Modelo} from '../modelo/modelo.js'
 
-import {VistaList} from './vistalista.js'
-import {VistaAlta} from './vistaalta.js'
-import{VistaEdit} from './vistaedit.js'
-import {VistaHead} from './vistahead.js'
-import { VistaCons } from './vistacons.js'
+import {VistaList} from '../vistas/vistalista.js'
+import {VistaAlta} from '../vistas/vistaalta.js'
+import{VistaEdit} from '../vistas/vistaedit.js'
+import {VistaHead} from '../vistas/vistahead.js'
+import { VistaCons } from '../vistas/vistacons.js'
 /**
  * Controlador de la aplicación
  */
@@ -44,6 +44,8 @@ class Controlador{
 		
 		
 		
+
+
 		this.mainList.mostrar(true)
 	}	
 	/**
