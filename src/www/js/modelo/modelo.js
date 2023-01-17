@@ -1,4 +1,4 @@
-import { Idb } from "../controlador/idb.js"
+import {Idb} from "../servicio/idb.js"
 /**
  * Modelo de datos 
  * 
@@ -9,10 +9,11 @@ import { Idb } from "../controlador/idb.js"
 export class Modelo{
     constructor(controlador){
        this.controlador= controlador
-       this.ibn = new Idb()
+       this.idb = new Idb()
 	}
     insertar(objeto, callback){
         console.log(objeto)
+        console.log(callback)
         this.idb.insertar(objeto, callback)
     }
 }
