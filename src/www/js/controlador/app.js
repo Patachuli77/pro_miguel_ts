@@ -84,7 +84,12 @@ class Controlador{
 		this.mainAlta.mostrar(false)
         this.mainCons.mostrar(true)
 	}
-
+	insertar(objeto){
+		this.modelo.insertar(objeto, this.insertarOK.bind(this))	
+	}
+	insertarOK(){
+		console.log('La inserción ha ido bien')
+	}
 }
 
 const app = new Controlador()

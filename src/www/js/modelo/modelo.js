@@ -1,17 +1,18 @@
+import { Idb } from "../controlador/idb.js"
 /**
- * Modelo de datos de la ropa
+ * Modelo de datos 
  * 
  * 
  * 
  */ 
+
 export class Modelo{
-    constructor(nombre, talla, diaComprado, descripcion, enUso, tipo, estacion){
-        this.nombre = nombre
-        this.talla = talla
-        this.diaComprado = diaComprado
-        this.descripcion = descripcion
-        this.enUso = enUso//al dar de alta se daria en false 
-        this.tipo= tipo //calzado parte de arriba... el select
-        this.estacion = estacion//invierno verano otoño primavera el checkbox
+    constructor(controlador){
+       this.controlador= controlador
+       this.ibn = new Idb()
 	}
+    insertar(objeto, callback){
+        console.log(objeto)
+        this.idb.insertar(objeto, callback)
+    }
 }
