@@ -23,4 +23,14 @@ export class Idb{
 		const peticion = tabla.add(objeto)
   		peticion.onsuccess = callback
 	}
+	listar(callback){
+		const objectStore =this.conexion.transaction('tabla1', 'readonly').objectStore('tabla1')
+			const peticion = objectStore.getAll()
+			peticion.onsuccess=function(){
+				let lista= peticion.result
+				this.listado=lista
+				callback(this.listado)
+			}
+	}
 }
+

@@ -13,7 +13,9 @@ export class Modelo{
 	}
     insertar(objeto, callback){
         console.log(objeto)
-        console.log(callback)
         this.idb.insertar(objeto, callback)
+    }
+    listar(callback){
+        this.idb.listar(callback)
     }
 }

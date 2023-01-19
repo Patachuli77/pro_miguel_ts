@@ -26,18 +26,28 @@ export class VistaAlta extends Vista{
 		this.btnAceptarForm.onclick = this.validar.bind(this)
 	}
 	validar(){
+
+
+
+
+
+
+		
 		let nombre = this.formNombre.value
 		let talla = this.formTalla.value
 		let dia = this.formDia.value //Año mes dia
 		let descripcion = this.formDescripcion.value
 		let tipo = this.formTipo.value
+		let disponible = true
+		let array = []
+		array.push(this.pri.checked,this.ver.checked,this.oto.checked,this.inv.checked)
+		console.log(array)
 		
-		
-		let prim = this.pri.value
-		console.log(prim)
 
 		
-		/*let objeto = new Ropa(nombre,talla,dia)
-		this.controlador.insertar(objeto)*/
+
+		
+		let objeto = new Ropa(nombre,talla,dia,descripcion,disponible,tipo,array)
+		this.controlador.insertar(objeto)
 	}
 }

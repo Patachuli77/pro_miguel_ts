@@ -9,6 +9,7 @@ import {VistaAlta} from '../vistas/vistaalta.js'
 import{VistaEdit} from '../vistas/vistaedit.js'
 import {VistaHead} from '../vistas/vistahead.js'
 import { VistaCons } from '../vistas/vistacons.js'
+import{VistaBusq} from '../vistas/vistabusq.js'
 /**
  * Controlador de la aplicación
  */
@@ -53,9 +54,11 @@ class Controlador{
 	**/
 	pulsarHeadList(){
 		this.mainList.mostrar(true)
+		
 		this.mainEdit.mostrar(false)
 		this.mainAlta.mostrar(false)
         this.mainCons.mostrar(false)
+		this.mainBusq.mostrar(false)
 	}
 	/**
 		Atención a la pulsación del enlace a la edicion
@@ -65,6 +68,7 @@ class Controlador{
 		this.mainEdit.mostrar(true)
 		this.mainAlta.mostrar(false)
         this.mainCons.mostrar(false)
+		this.mainBusq.mostrar(false)
 	}
 	/**
 		Atención a la pulsación del enlace a el alta
@@ -74,6 +78,7 @@ class Controlador{
 		this.mainEdit.mostrar(false)
 		this.mainAlta.mostrar(true)
         this.mainCons.mostrar(false)
+		this.mainBusq.mostrar(false)
 	}
     /**
 		Atención a la pulsación del enlace a la consulta
@@ -83,12 +88,32 @@ class Controlador{
 		this.mainEdit.mostrar(false)
 		this.mainAlta.mostrar(false)
         this.mainCons.mostrar(true)
+		this.mainBusq.mostrar(false)
 	}
+	/**
+		Atención a la pulsación del enlace a la consulta
+	**/
+	pulsarBuscar(){
+		this.mainList.mostrar(false)
+		this.mainEdit.mostrar(false)
+		this.mainAlta.mostrar(false)
+        this.mainCons.mostrar(false)
+		this.mainBusq.mostrar(true)
+	}
+	/*INSERCION*/
 	insertar(objeto){
 		this.modelo.insertar(objeto, this.insertarOK.bind(this))	
 	}
 	insertarOK(){
 		console.log('La inserción ha ido bien')
+	}
+
+	/*LISTADO*/
+	listar(){
+		this.modelo.listar(this.listarOK.bind(this))	
+	}
+	listarOK(lista){
+		this.mainList.generarLista(lista)
 	}
 }
 
