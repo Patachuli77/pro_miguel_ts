@@ -5,13 +5,23 @@
         <meta author="Jorge Ortega Rivera">
     </head>
     <body>
-       <header>
+        <header>
+            <a class="logo"><img src="../../src/www/assets/imagenes/logo.svg" alt="logo empresa"></a>
+            <div id="buscar">
+                <input type="text"  placeholder="Buscar..." name="nomBusq">
+                <button>Buscar</button>
+            </div>
+            <div class="resaltado">
+                <h1>Añadir Prendas</h1>
+            </div>
+       </header>
+       <!--<header>
            <h1>ESTO ES UNA PRUEBA PARA EL MVC</h1> 
            <h1>Listado</h1>
            <h1>Edicion</h1>
            <h1>Alta</h1>
            <h1>Consulta</h1>
-       </header>
+       </header>-->
        <main id="listado">
         <div id="inicio">
             <h1>Bienvenido a tu armario virtual</h1>
@@ -91,6 +101,9 @@
         </main>
         <main id="consulta">
             <h1>Estas en la vista de consulta</h1>   
+        </main>
+        <main id="busqueda">
+            <h1>Estas en la vista de busqueda</h1>
         </main>
         <script  type="module" src=js/controlador/app.js></script> 
     </body>
