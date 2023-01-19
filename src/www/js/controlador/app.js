@@ -33,6 +33,7 @@ class Controlador{
 		this.mainEdit = document.getElementById('edicion')
 		this.mainAlta = document.getElementById('alta')
         this.mainCons = document.getElementById('consulta')
+		this.mainBusq = document.getElementById('busqueda')
 
 
 		
@@ -42,11 +43,9 @@ class Controlador{
 		this.mainEdit = new VistaEdit(this, this.mainEdit)
 		this.mainAlta = new VistaAlta(this,this.mainAlta)
         this.mainCons = new VistaCons(this, this.mainCons)
+		this.mainBusq = new VistaBusq(this, this.mainBusq)
 		
 		
-		
-
-
 		this.mainList.mostrar(true)
 	}	
 	/**
