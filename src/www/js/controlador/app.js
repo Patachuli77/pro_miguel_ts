@@ -90,6 +90,13 @@ class Controlador{
 	insertarOK(){
 		console.log('La inserción ha ido bien')
 	}
+
+	listar(){
+		this.modelo.listar(this.listarOK.bind(this))	
+	}
+	listarOK(lista){
+		this.mainList.generarLista(lista)
+	}
 }
 
 const app = new Controlador()
