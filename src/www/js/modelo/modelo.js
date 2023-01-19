@@ -18,4 +18,7 @@ export class Modelo{
     listar(callback){
         this.idb.listar(callback)
     }
+    buscar(texto, callback){
+        this.idb.buscar(texto,callback)
+    }
 }

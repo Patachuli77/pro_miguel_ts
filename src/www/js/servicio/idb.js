@@ -14,7 +14,7 @@ export class Idb{
 		peticion.onsuccess = evento => {this.conexion = evento.target.result}
 	}
 	crear(){
-		const tabla = this.conexion.createObjectStore('tabla1', {autoIncrement: true})
+		const tabla = this.conexion.createObjectStore('tabla1', {keyPath :'id'})
 	}
 	insertar(objeto, callback){
 		const transaccion = this.conexion.transaction(['tabla1'], 'readwrite')
@@ -31,6 +31,29 @@ export class Idb{
 				this.listado=lista
 				callback(this.listado)
 			}
+	}
+	buscar(texto, callback){
+
+		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
+		this.resultados = []
+
+		const cursor1 = objectStore.openCursor()
+		cursor1.onsuccess = (evento) => {
+			const cursor = evento.target.result;
+			if (cursor) {
+				let ropa = cursor.value
+				if (ropa.nombre == texto){
+					this.resultados.push(ropa)
+                }
+				    cursor.continue()
+			} 
+            else {
+				console.log(this.resultados)
+				callback(this.resultados)
+			}
+		}  
+
+
 	}
 }
 

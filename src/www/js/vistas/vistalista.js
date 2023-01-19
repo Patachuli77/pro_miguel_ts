@@ -32,7 +32,7 @@ export class VistaList extends Vista{
 			a.appendChild(div)
 
 			this.listado.appendChild(a)
-			console.log(element)
+			
 
 		});
 

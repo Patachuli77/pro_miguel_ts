@@ -4,6 +4,7 @@
  */ 
 export class Ropa{
     constructor(nombre, talla, diaComprado, descripcion, enUso, tipo, estacion){
+        this.id=Date.now()
         this.nombre = nombre
         this.talla = talla
         this.diaComprado = diaComprado

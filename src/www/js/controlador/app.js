@@ -114,6 +114,10 @@ class Controlador{
 	listarOK(lista){
 		this.mainList.generarLista(lista)
 	}
+	/*BUSCAR*/
+	buscar(texto){
+		this.modelo.buscar(texto,this.listarOK.bind(this))	
+	}
 }
 
 const app = new Controlador()
