@@ -1,3 +1,7 @@
+/**
+ * @file Contiene el controlador principal de la aplicación
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
+ */
 import {Vista} from './vista.js'
 import {Ropa} from '../modelo/ropa.js'
 export class VistaEdit extends Vista{
@@ -40,7 +44,10 @@ export class VistaEdit extends Vista{
 		
 		
 		this.id = ''
-	}
+	}/**
+	 * Metodo que muestra los datos del objeto en la vista de edicion
+	 * @param {object} ropa 
+	 */
 	mostrarDatos(ropa){
 		
 		this.limpiar()
@@ -60,12 +67,6 @@ export class VistaEdit extends Vista{
 		this.oto.checked = ropa.estacion[2]		
 		this.inv.checked = ropa.estacion[3]
 		
-	
-		
-
-		
-		/*this.estacion=this.div.getElementsByTagName('h3')[4]
-		console.log(ropa.estacion[0])*/
 		
 		this.nombre.value = ropa.nombre
 		this.talla.value = ropa.talla
@@ -73,6 +74,9 @@ export class VistaEdit extends Vista{
 		this.descripcion.value = ropa.descripcion
 		
 	}
+	/**
+	 * Metodo que limpia el formulario despues de su uso por si acacso
+	 */
 	limpiar(){
 		this.op1.selected = false
 		this.op2.selected = false
@@ -83,17 +87,20 @@ export class VistaEdit extends Vista{
 		this.oto.checked = false		
 		this.inv.checked = false
 
-		/*this.estacion=this.div.getElementsByTagName('h3')[4]
-		console.log(ropa.estacion[0])*/
 		
 		this.nombre.value = ''
 		this.talla.value = ''
 		this.dia.value = ''
 		this.descripcion.value = ''
-	}
+	}/**
+	 * MEtodo que llama al controlador para borrar
+	 */
 	borrar(){
 		this.controlador.borrado(this.id)
 	}
+	/**
+	 * Metodo que valida los datos del formulario y decide si enviarlos o no dependindo del resultado
+	 */
 	guardar(){
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.nombre.value
@@ -147,11 +154,16 @@ export class VistaEdit extends Vista{
 		
 
 		
-	}
+	}/**
+	 * Metodo para volver a la vista anterior
+	 */
 	volver(){
 		this.quitarErrores()
 		this.controlador.pulsarHeadCons()
 	}
+	/**
+	 * Metodo para quitar los avisos por datos incorrectos
+	 */
 	quitarErrores(){
 		this.h3Error2.style.display='none'
 		this.h3Error1.style.display='none'

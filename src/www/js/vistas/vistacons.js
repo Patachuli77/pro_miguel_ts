@@ -1,3 +1,7 @@
+/**
+ * @file Contiene el controlador principal de la aplicación
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
+ */
 import {Vista} from './vista.js'
 export class VistaCons extends Vista{
 	constructor(controlador, div){
@@ -9,7 +13,10 @@ export class VistaCons extends Vista{
 
 		this.btnVolver = this.div.getElementsByTagName('a')[0]
 		this.btnVolver.onclick = this.volver.bind(this)
-	}
+	}/**
+	 * Metodo que mete los datos del objeto dentro de su sitio en la vista para poder visualizarlos
+	 * @param {object} ropa 
+	 */
 	mostrarDatos(ropa){
 		let cadena = ''
 		if(ropa.estacion[0]==true){
@@ -37,10 +44,14 @@ export class VistaCons extends Vista{
 		descripcion.innerHTML = ropa.descripcion
 		tipo.innerHTML= ropa.tipo
 		estacion.innerHTML= cadena
-	}
+	}/**
+	 * Metodo para cambiar a la vista de editar
+	 */
 	modificar(){
 		this.controlador.pulsarHeadEdit()
-	}
+	}/**
+	 * Metodo para volver a la vista principal
+	 */
 	volver(){
 		this.controlador.pulsarHeadList()
 	}

@@ -1,3 +1,7 @@
+/**
+ * @file Contiene el controlador principal de la aplicación
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
+ */
 import {Vista} from './vista.js'
 import {Ropa} from '../modelo/ropa.js'
 export class VistaAlta extends Vista{
@@ -41,7 +45,10 @@ export class VistaAlta extends Vista{
 		this.btnAceptarForm.onclick = this.validar.bind(this,1)
 		this.btnAceptarVolver.onclick = this.validar.bind(this,0)
 		this.btnCancelar.onclick = this.volver.bind(this)
-	}
+	}/**
+	 * Metodo que valida los datos y los envia o no al alta dependiendo del resultado
+	 * @param {int} num depende de por donde se llegue al metodo el resultado varia
+	 */
 	validar(num){
 
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
@@ -98,10 +105,16 @@ export class VistaAlta extends Vista{
 		
 		
 	}
+	/**
+	 * Metodo que vuelve a la vista principal sin realizar cambios
+	 */
 	volver(){
 		this.limpiar()
 		this.controlador.pulsarHeadList()
 	}
+	/**
+	 * Metodo que limpia el formulario cada vez que se inicializa
+	 */
 	limpiar(){
 		this.op1.selected = false
 		this.op2.selected = false
@@ -112,8 +125,7 @@ export class VistaAlta extends Vista{
 		this.oto.checked = false		
 		this.inv.checked = false
 
-		/*this.estacion=this.div.getElementsByTagName('h3')[4]
-		console.log(ropa.estacion[0])*/
+
 		
 		this.formNombre.value = ''
 		this.formTalla.value = ''

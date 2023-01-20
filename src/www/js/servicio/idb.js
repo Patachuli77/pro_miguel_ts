@@ -1,6 +1,6 @@
 /**
- * Controlador de idb
- * 
+ * @file Contiene el controlador del idb
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
 
 export class Idb{
@@ -12,17 +12,26 @@ export class Idb{
 			this.crear()
         	}
 		peticion.onsuccess = evento => {this.conexion = evento.target.result}
-	}
+	}/**
+	 * Metodo que crea la tabla
+	 */
 	crear(){
 		const tabla = this.conexion.createObjectStore('tabla1', {keyPath :'id'})
-	}
+	}/**
+	 * Metodo que inserta un objeto en el indexer
+	 * @param {object} objeto 
+	 * @param {funcion} callback 
+	 */
 	insertar(objeto, callback){
 		const transaccion = this.conexion.transaction(['tabla1'], 'readwrite')
 		transaccion.onerror = evento => {throw 'Error al insertar'}
 		const tabla = transaccion.objectStore('tabla1')
 		const peticion = tabla.add(objeto)
   		peticion.onsuccess = callback
-	}
+	}/**
+	 * Metodo que devuelve una lista de los objetos del indexer
+	 * @param {fubncion} callback 
+	 */
 	listar(callback){
 		const objectStore =this.conexion.transaction('tabla1', 'readonly').objectStore('tabla1')
 			const peticion = objectStore.getAll()
@@ -31,7 +40,11 @@ export class Idb{
 				this.listado=lista
 				callback(this.listado)
 			}
-	}
+	}/**
+	 * Metodo que devuelve una lista con los resultados de la busqueda de texto
+	 * @param {string} texto 
+	 * @param {funcion} callback 
+	 */
 	buscar(texto, callback){
 
 		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
@@ -54,7 +67,11 @@ export class Idb{
 		}  
 
 
-	}
+	}/**
+	 * Metodo que saca un objeto a partir de su id
+	 * @param {string} id 
+	 * @param {funcion} callback 
+	 */
 	consultar(id, callback){
 
 		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
@@ -73,7 +90,11 @@ export class Idb{
 				callback(this.result)
 			}
 		}  
-    }
+    }/**
+	 * Metodo que borra un objeto a partir de su id
+	 * @param {string} id 
+	 * @param {funcion} callback 
+	 */
 	borrar(id, callback){
 		const datos = this.conexion.transaction('tabla1','readwrite')		
 		let request = datos.objectStore("tabla1").delete(id);
@@ -83,6 +104,12 @@ export class Idb{
         }
 
 	}
+	/**
+	 * Metodo que guarda los cambios a un objeto a traves de su id
+	 * @param {string} id 
+	 * @param {object} ropa 
+	 * @param {funcion} callback 
+	 */
 	guardar(id,ropa,callback){
 		const objectStore =this.conexion.transaction ('tabla1', 'readwrite').objectStore('tabla1')
         const peticion = objectStore.get(parseInt(id))

@@ -1,8 +1,18 @@
 /**
- * MOdelo de la ropa
- * 
- */ 
+ * @file Contiene el objeto principal de la aplicaion
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
+ */
 export class Ropa{
+    /**
+     * Objeto principal de la aplicaicion
+     * @param {string} imagenSrc 
+     * @param {string} nombre 
+     * @param {string} talla 
+     * @param {string} diaComprado 
+     * @param {string} descripcion 
+     * @param {string} tipo 
+     * @param {array} estacion 
+     */
     constructor(imagenSrc,nombre, talla, diaComprado, descripcion, tipo, estacion){
         this.id=Date.now()
         this.imagenSrc=imagenSrc

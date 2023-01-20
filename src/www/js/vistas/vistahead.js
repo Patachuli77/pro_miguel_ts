@@ -1,3 +1,7 @@
+/**
+ * @file Contiene el controlador principal de la aplicación
+ * @author	Jorge Ortega <jorge77.ortega@gmail.com>
+ */
 export class VistaHead{
 	constructor(controlador, head){
 		this.controlador = controlador
@@ -14,23 +18,23 @@ export class VistaHead{
 		
 		this.h1Alta.onclick = this.pulsarAlta.bind(this)
       
-	}
+	}/**
+	 * Metodo que llama al controlador para cambiar la vista a listar
+	 */
 	pulsarLista(){
 		this.controlador.pulsarHeadList()
 		
-	}
-	pulsarEdit(){
-		this.controlador.pulsarHeadEdit()
-		
-	}
+	}/**
+	 * Metodo que llama al controlador para cambiar la vista al alta
+	 */
 	pulsarAlta(){
 		this.controlador.pulsarHeadAlta()
 		
 	}
-    pulsarConsulta(){
-		this.controlador.pulsarHeadCons()
-		
-	}
+	/**
+	 * Metodo que llama al controlador para cambiar la vista a buscar
+	 * 
+	 */
 	pulsarBuscar(){
 		this.controlador.pulsarBuscar()
 	}
