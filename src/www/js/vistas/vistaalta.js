@@ -38,7 +38,7 @@ export class VistaAlta extends Vista{
 		let dia = this.formDia.value //Año mes dia
 		let descripcion = this.formDescripcion.value
 		let tipo = this.formTipo.value
-		let disponible = true
+		/*let disponible = true*/
 		let array = []
 		array.push(this.pri.checked,this.ver.checked,this.oto.checked,this.inv.checked)
 		console.log(array)
@@ -47,7 +47,7 @@ export class VistaAlta extends Vista{
 		
 
 		
-		let objeto = new Ropa(nombre,talla,dia,descripcion,disponible,tipo,array)
+		let objeto = new Ropa(nombre,talla,dia,descripcion,tipo,array)
 		this.controlador.insertar(objeto)
 	}
 }

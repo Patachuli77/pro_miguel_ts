@@ -55,5 +55,65 @@ export class Idb{
 
 
 	}
+	consultar(id, callback){
+
+		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
+		this.result 
+		const cursor1 = objectStore.openCursor()
+		cursor1.onsuccess = (evento) => {
+			const cursor = evento.target.result;
+			if (cursor) {
+				let ropa = cursor.value
+				if (ropa.id == id){
+					this.result=ropa
+                }
+				    cursor.continue()
+			} 
+            else {
+				callback(this.result)
+			}
+		}  
+    }
+	borrar(id, callback){
+		const datos = this.conexion.transaction('tabla1','readwrite')		
+		let request = datos.objectStore("tabla1").delete(id);
+        request.onsuccess=(event) => {
+            
+            callback()
+        }
+
+	}
+	guardar(id,ropa,callback){
+		const objectStore =this.conexion.transaction ('tabla1', 'readwrite').objectStore('tabla1')
+        const peticion = objectStore.get(parseInt(id))
+        
+        peticion.onerror=(event) =>{
+            console.log('Falló la lectura')
+        }
+        peticion.onsuccess=(event) =>{
+            const data = event.target.result
+            console.log('Leído', data)
+           
+            data.nombre=ropa.nombre
+            data.talla=ropa.talla
+            data.diaComprado=ropa.diaComprado
+            data.descripcion=ropa.descripcion
+            data.tipo=ropa.tipo
+            data.estacion=ropa.estacion
+            
+
+            const peticion2 = objectStore.put(data)
+            this.listar()
+            peticion2.onerror =(event) =>{
+                console.log('No se pudo actualizar')
+                
+                callback()
+            }
+            peticion2.onsuccess =(event) => {
+                console.log('Se actualizó')
+                callback()
+            }
+        }
+	}
 }
 

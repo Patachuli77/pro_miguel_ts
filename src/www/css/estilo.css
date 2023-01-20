@@ -73,6 +73,9 @@ div.cajaRopa img{
     width:200px;
     height: auto;
 }
+div.cajaRopa p.oculto{
+    display: none;
+}
 /***********ALTA***********/
 div#formularios{
     display: flex;
@@ -113,7 +116,7 @@ main#alta div.botones button.aceptar{
     background-color: lightgreen;
 }
 /************EDITAR*****************/
-main#editar div.botones{
+main#edicion div.botones{
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -122,27 +125,27 @@ main#editar div.botones{
     margin-top: 30px;
     gap:20px;
 }
-main#editar div.botones span{
+main#edicion div.botones span{
     padding: 10px;
     border-radius: 4px;
     text-align: center;
    
 }
-main#editar div.botones span#volver{
+main#edicion div.botones span#volver{
     background-color: orange;
 }
-main#editar div.botones span#eliminar{
+main#edicion div.botones span#eliminar{
     background-color: red;
 }
-main#editar div.botones span#guardar{
+main#edicion div.botones span#guardar{
     background-color: lightgreen;
 }
-/*******DATOS*******/
-main#datos div#formularios img{
+/*******consulta*******/
+main#consulta div#formularios img{
     width: 100px;
     height: autoº;
 }
-main#datos div.botones{
+main#consulta div.botones{
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -151,15 +154,15 @@ main#datos div.botones{
     margin-top: 30px;
     gap:20px;
 }
-main#datos div.botones span{
+main#consulta div.botones span{
     padding: 10px;
     border-radius: 4px;
     text-align: center;
 }
-main#datos div.botones span#volver{
+main#consulta div.botones span#volver{
     background-color: orange;
 }
-main#datos div.botones span#editar{
+main#consulta div.botones span#editar{
     background-color: lightgreen;
 }
 #listado,#edicion,#alta,#consulta,#busqueda{

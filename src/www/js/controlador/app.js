@@ -83,11 +83,13 @@ class Controlador{
 		Atención a la pulsación del enlace a la consulta
 	**/
 	pulsarHeadCons(){
+		
 		this.mainList.mostrar(false)
 		this.mainEdit.mostrar(false)
 		this.mainAlta.mostrar(false)
         this.mainCons.mostrar(true)
 		this.mainBusq.mostrar(false)
+		
 	}
 	/**
 		Atención a la pulsación del enlace a la consulta
@@ -114,9 +116,27 @@ class Controlador{
 	listarOK(lista){
 		this.mainList.generarLista(lista)
 	}
+	pulsarRopa(id){
+		this.modelo.consultar(id,this.consultaPrenda.bind(this))
+	}
+	consultaPrenda(ropa){
+		this.mainEdit.mostrarDatos(ropa)
+		this.mainCons.mostrarDatos(ropa)
+		this.pulsarHeadCons()
+	}
 	/*BUSCAR*/
 	buscar(texto){
 		this.modelo.buscar(texto,this.listarOK.bind(this))	
+	}
+	/*BORRAR*/
+	borrado(id){
+		this.modelo.eliminar(id,this.listar.bind(this))
+		this.pulsarHeadList()
+	}
+	/*Guardar*/
+	guardar(id,ropa){
+		this.modelo.guardar(id,ropa,this.listar.bind(this))
+		this.pulsarHeadList()
 	}
 }
 

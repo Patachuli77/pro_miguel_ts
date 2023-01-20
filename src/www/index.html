@@ -29,44 +29,39 @@
             <button>Empezar</button>
         </div>
         <div id="gridRopa">
-            <a href="datos.html">
-             <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta1.jpg">
-                <h3>Camiseta Blanca</h3>
-             </div>
-            </a>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta2.jpg ">
-                <h3>Camiseta Roja</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta1.jpg">
-                <h3>Camiseta Blanca</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta2.jpg ">
-                <h3>Camiseta Roja</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta1.jpg">
-                <h3>Camiseta Blanca</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta2.jpg ">
-                <h3>Camiseta Roja</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta1.jpg">
-                <h3>Camiseta Blanca</h3>
-            </div>
-            <div class="cajaRopa">
-                <img src="../../src/www/assets/imagenes/camiseta2.jpg ">
-                <h3>Camiseta Roja</h3>
-            </div>
+            
         </div>   
        </main>
        <main id="edicion">
-            <h1>Estas en la vista editar</h1>   
+        <div id="formularios">
+            <label>Foto de la prenda</label>
+            <input type="file" name="foto">
+            <label>Nombre</label>
+            <input type="text" name="nombre">
+            <label>Talla</label>
+            <input type="number" name="talla">
+            <label>Dia comprado</label>
+            <input type="date" name="talla">
+            <label>Descripcion</label>
+            <textarea name="descripcion" ></textarea>
+            <label>Tipo</label>
+            <select name="tipo">
+                <option value="Parte de arriba">Parte de arriba</option>
+                <option value="Parte de abajo">Parte de abajo</option>
+                <option value="Accesorio">Accesorio</option>
+                <option value="Calzado">Calzado</option>
+            </select>
+            <label>Estacion</label>
+            <label><input type="checkbox" name="pri"> Primavera</label>
+            <label><input type="checkbox" name="ver"> Verano</label>
+            <label><input type="checkbox" name="oto"> Otoño</label>
+            <label><input type="checkbox" name="inv"> Invierno</label>
+        </div>
+        <div class="botones">
+            <a href="datos.html"><span id="volver">Volver</span></a>
+            <a><span id="eliminar">Eliminar</span></a>
+            <a><span id="guardar">Guardar</span></a>
+        </div> 
         </main>
         <main id="alta">  
             <div id="formularios">
@@ -82,10 +77,10 @@
                 <textarea name="descripcion" ></textarea>
                 <label>Tipo</label>
                 <select name="tipo">
-                     <option value="arriba">Parte de arriba</option>
-                     <option value="abajo">Parte de abajo</option>
-                     <option value="accesorio">Accesorio</option>
-                     <option value="calzado">Calzado</option>
+                     <option value="Parte de arriba">Parte de arriba</option>
+                     <option value="Parte de abajo">Parte de abajo</option>
+                     <option value="Accesorio">Accesorio</option>
+                     <option value="Calzado">Calzado</option>
                 </select>
                 <label>Estación</label>
                 <label><input type="checkbox" name="pri"> Primavera</label>
@@ -100,8 +95,26 @@
             </div>
         </main>
         <main id="consulta">
-            <h1>Estas en la vista de consulta</h1>   
-
+            <div id="formularios">
+                <label>Foto de la prenda</label>
+                <img src="../../src/www/assets/imagenes/camiseta1.jpg">
+                <label>Nombre</label>
+                <h3>Camiseta Blanca</h3>
+                <label>Talla</label>
+                <h3>42</h3>
+                <label>Dia comprado</label>
+                <h3>22/12/2018</h3>
+                <label>Descripcion</label>
+                <p>Camiseta blanca comprada en...</p>
+                <label>Tipo</label>
+                <h3>Parte de arriba</h3>
+                <label>Estacion</label>
+                <h3>Verano, Primavera</h2>
+            </div>
+            <div class="botones">
+                <a href="index.html"><span id="volver">Volver</span></a>
+                <a><span id="editar">Editar</span></a>
+            </div>  
         </main>
         <main id="busqueda">
             <h1>Estas en la vista de busqueda</h1>

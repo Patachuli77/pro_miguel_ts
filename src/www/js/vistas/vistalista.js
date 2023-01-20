@@ -18,30 +18,42 @@ export class VistaList extends Vista{
 		this.controlador.listar()
 	}
 	generarLista(lista){
-		
+		this.listado.innerHTML = ""
 		lista.forEach(element => {
-			
-			let a = document.createElement('a')
-			let	div = document.createElement('div')
-			div.classList.add('cajaRopa')
+			let p = document.createElement('p')
+			p.innerHTML= element["id"]
+			p.classList.add('oculto')
+
+			let	divCaja = document.createElement('div')
+			divCaja.classList.add('cajaRopa')
 			let img = document.createElement('img')
 			let h3 = document.createElement('h3')
 			h3.innerHTML= element["nombre"]
-			div.appendChild(img)
-			div.appendChild(h3)
-			a.appendChild(div)
-
-			this.listado.appendChild(a)
-			
+			divCaja.appendChild(img)
+			divCaja.appendChild(h3)
+			divCaja.appendChild(p)
+				
+			this.listado.appendChild(divCaja)
 
 		});
 
+		this.acciones()
 		/*<a href="datos.html">
              <div class="cajaRopa">
                 <img src="../../src/www/assets/imagenes/camiseta1.jpg">
                 <h3>Camiseta Blanca</h3>
              </div>
-            </a>
+            </a>this.div.onclick = this.controlador.pulsarRopa(element["id"])
 		*/
+	}
+	acciones(){
+		this.cajas= this.div.getElementsByClassName('cajaRopa')
+		for(let caja of this.cajas){
+			let id=caja.lastChild.innerHTML
+			caja.onclick=this.pulsarCaja.bind(this, id)
+	   }
 	}		
+	pulsarCaja(id){
+		this.controlador.pulsarRopa(id)
+	}
 }
