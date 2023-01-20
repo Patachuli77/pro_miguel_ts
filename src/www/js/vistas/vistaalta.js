@@ -10,7 +10,7 @@ export class VistaAlta extends Vista{
 		this.btnAceptarForm = this.div.getElementsByTagName('button')[2]
 
 		
-		//this.formImg = this.div.getElementsByTagName("input")[0]
+		this.formImg = this.div.getElementsByTagName("input")[0]
 		this.formNombre= this.div.getElementsByTagName("input")[1]
 		this.formTalla = this.div.getElementsByTagName("input")[2]
 		this.formDia = this.div.getElementsByTagName("input")[3]
@@ -44,6 +44,7 @@ export class VistaAlta extends Vista{
 	}
 	validar(num){
 
+		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.formNombre.value
 		let talla = this.formTalla.value
 		let dia = this.formDia.value //Año mes dia
@@ -85,7 +86,7 @@ export class VistaAlta extends Vista{
 			} 	
 		}else{
 
-			let objeto = new Ropa(nombre,talla,dia,descripcion,tipo,array)
+			let objeto = new Ropa(imagenSrc,nombre,talla,dia,descripcion,tipo,array)
 			this.controlador.insertar(objeto)
 			this.limpiar()
 			if(num==0){

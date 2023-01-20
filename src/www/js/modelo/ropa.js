@@ -3,8 +3,9 @@
  * 
  */ 
 export class Ropa{
-    constructor(nombre, talla, diaComprado, descripcion, tipo, estacion){
+    constructor(imagenSrc,nombre, talla, diaComprado, descripcion, tipo, estacion){
         this.id=Date.now()
+        this.imagenSrc=imagenSrc
         this.nombre = nombre
         this.talla = talla
         this.diaComprado = diaComprado

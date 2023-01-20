@@ -95,6 +95,7 @@ export class VistaEdit extends Vista{
 		this.controlador.borrado(this.id)
 	}
 	guardar(){
+		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.nombre.value
 		let talla = this.talla.value
 		let dia = this.dia.value //Año mes dia
@@ -136,7 +137,7 @@ export class VistaEdit extends Vista{
 			} 	
 		}else{
 
-			let objeto = new Ropa(nombre,talla,dia,descripcion,tipo,array)
+			let objeto = new Ropa(imagenSrc,nombre,talla,dia,descripcion,tipo,array)
 			this.controlador.guardar(this.id,objeto)
 			this.limpiar()
 		}

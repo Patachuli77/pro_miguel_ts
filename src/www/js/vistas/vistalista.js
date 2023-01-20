@@ -25,10 +25,12 @@ export class VistaList extends Vista{
 			let p = document.createElement('p')
 			p.innerHTML= element["id"]
 			p.classList.add('oculto')
+			
 
 			let	divCaja = document.createElement('div')
 			divCaja.classList.add('cajaRopa')
 			let img = document.createElement('img')
+			img.setAttribute("src",element["imagenSrc"])
 			let h3 = document.createElement('h3')
 			h3.innerHTML= element["nombre"]
 			divCaja.appendChild(img)
