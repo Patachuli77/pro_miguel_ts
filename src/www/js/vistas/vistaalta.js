@@ -110,6 +110,7 @@ export class VistaAlta extends Vista{
 	 */
 	volver(){
 		this.limpiar()
+		this.controlador.listar()
 		this.controlador.pulsarHeadList()
 	}
 	/**
