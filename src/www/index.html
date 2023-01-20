@@ -7,21 +7,13 @@
     <body>
         <header>
             <a class="logo"><img src="../../src/www/assets/imagenes/logo.svg" alt="logo empresa"></a>
-            <div id="buscar">
-                <input type="text"  placeholder="Buscar..." name="nomBusq">
-                <button>Buscar</button>
+            <div class="resaltado">
+                <h1>Buscar Prendas</h1>
             </div>
             <div class="resaltado">
                 <h1>Añadir Prendas</h1>
             </div>
        </header>
-       <!--<header>
-           <h1>ESTO ES UNA PRUEBA PARA EL MVC</h1> 
-           <h1>Listado</h1>
-           <h1>Edicion</h1>
-           <h1>Alta</h1>
-           <h1>Consulta</h1>
-       </header>-->
        <main id="listado">
         <div id="inicio">
             <h1>Bienvenido a tu armario virtual</h1>
@@ -39,7 +31,7 @@
             <label>Nombre</label>
             <input type="text" name="nombre">
             <label>Talla</label>
-            <input type="number" name="talla">
+            <input type="number" min="0" name="talla">
             <label>Dia comprado</label>
             <input type="date" name="talla">
             <label>Descripcion</label>
@@ -56,9 +48,11 @@
             <label><input type="checkbox" name="ver"> Verano</label>
             <label><input type="checkbox" name="oto"> Otoño</label>
             <label><input type="checkbox" name="inv"> Invierno</label>
+            <h3 class="error">Rellene las categorias marcadas para continuar</h3>
+            <h3 class="error">No se admiten valores negativos en la talla</h3>
         </div>
         <div class="botones">
-            <a href="datos.html"><span id="volver">Volver</span></a>
+            <a><span id="volver">Volver</span></a>
             <a><span id="eliminar">Eliminar</span></a>
             <a><span id="guardar">Guardar</span></a>
         </div> 
@@ -70,7 +64,7 @@
                 <label>Nombre</label>
                 <input type="text" name="nombre">
                 <label>Talla</label>
-                <input type="number" name="talla">
+                <input type="number" min="0" name="talla">
                 <label>Dia comprado</label>
                 <input type="date" name="talla">
                 <label>Descripcion</label>
@@ -87,6 +81,8 @@
                 <label><input type="checkbox" name="ver"> Verano</label>
                 <label><input type="checkbox" name="oto"> Otoño</label>
                 <label><input type="checkbox" name="inv"> Invierno</label>
+                <h3 class="error">Rellene las categorias marcadas para continuar</h3>
+                <h3 class="error">No se admiten valores negativos en la talla</h3>
             </div>
             <div class="botones">
                 <button id="cancelar">Cancelar</button>
@@ -112,14 +108,15 @@
                 <h3>Verano, Primavera</h2>
             </div>
             <div class="botones">
-                <a href="index.html"><span id="volver">Volver</span></a>
+                <a><span id="volver">Volver</span></a>
                 <a><span id="editar">Editar</span></a>
             </div>  
         </main>
         <main id="busqueda">
-            <h1>Estas en la vista de busqueda</h1>
-            <input type="text"  placeholder="Buscar..." name="nomBusq">
-            <button>Buscar</button>
+            <div id="buscar">
+                <input type="text"  placeholder="Buscar..." name="nomBusq">
+                <button>Buscar</button>
+            </div>
         </main>
         <script  type="module" src=js/controlador/app.js></script> 
     </body>

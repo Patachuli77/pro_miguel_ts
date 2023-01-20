@@ -6,6 +6,9 @@ export class VistaCons extends Vista{
 		
 		this.btnEditar = this.div.getElementsByTagName('a')[1]
 		this.btnEditar.onclick = this.modificar.bind(this)
+
+		this.btnVolver = this.div.getElementsByTagName('a')[0]
+		this.btnVolver.onclick = this.volver.bind(this)
 	}
 	mostrarDatos(ropa){
 		let cadena = ''
@@ -37,5 +40,8 @@ export class VistaCons extends Vista{
 	}
 	modificar(){
 		this.controlador.pulsarHeadEdit()
+	}
+	volver(){
+		this.controlador.pulsarHeadList()
 	}
 }

@@ -20,11 +20,23 @@ export class VistaEdit extends Vista{
 		this.oto=this.div.getElementsByTagName('input')[6]
 		this.inv=this.div.getElementsByTagName('input')[7]
 
+		this.lbNombre = this.div.getElementsByTagName("label")[1]
+		this.lbTalla = this.div.getElementsByTagName("label")[2]
+		this.lbDia = this.div.getElementsByTagName("label")[3]
+		this.lbDescripcion = this.div.getElementsByTagName("label")[4]
+		this.lbEstacion = this.div.getElementsByTagName("label")[6]
+
+		this.h3Error1 = this.div.getElementsByTagName("h3")[0]
+		this.h3Error2 = this.div.getElementsByTagName("h3")[1]
+
 		this.btnBorrar = this.div.getElementsByTagName('a')[1]
 		this.btnBorrar.onclick = this.borrar.bind(this)
 		
 		this.btnEditar = this.div.getElementsByTagName('a')[2]
 		this.btnEditar.onclick = this.guardar.bind(this)
+
+		this.btnVolver = this.div.getElementsByTagName('a')[0]
+		this.btnVolver.onclick = this.volver.bind(this)
 		
 		
 		this.id = ''
@@ -83,28 +95,69 @@ export class VistaEdit extends Vista{
 		this.controlador.borrado(this.id)
 	}
 	guardar(){
-
-
 		let nombre = this.nombre.value
 		let talla = this.talla.value
 		let dia = this.dia.value //Año mes dia
 		let descripcion = this.descripcion.value
 		let tipo = this.tipo.value
+		let valArray = true
 		
 		let array = []
 		array.push(this.pri.checked,this.ver.checked,this.oto.checked,this.inv.checked)
+		console.log(array[0],array[1],array[2],array[3])
+		if(array[0]==false && array[1]==false && array[2]==false&& array[3]==false){
+			valArray= false
+		}
+		
+		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
+			if (nombre==''){
+				this.h3Error1.style.display='block'
+				this.lbNombre.style.color='red'
+			} 
+			if (talla==''){
+				this.h3Error1.style.display='block'
+				this.lbTalla.style.color='red'
+			} 
+			if (dia==''){
+				this.h3Error1.style.display='block'
+				this.lbDia.style.color='red'
+			} 
+			if (descripcion==''){
+				this.h3Error1.style.display='block'
+				this.lbDescripcion.style.color='red'
+			} 
+			if (valArray==false){
+				this.h3Error1.style.display='block'
+				this.lbEstacion.style.color='red'
+			} 
+			if (talla<0){
+				this.h3Error2.style.display='block'
+				this.lbTalla.style.color='red'
+			} 	
+		}else{
+
+			let objeto = new Ropa(nombre,talla,dia,descripcion,tipo,array)
+			this.controlador.guardar(this.id,objeto)
+			this.limpiar()
+		}
+
+	
 		
 		
 
 		
-
-		
-		let objeto = new Ropa(nombre,talla,dia,descripcion,tipo,array)
-		
-
-
-
-
-		this.controlador.guardar(this.id,objeto)
+	}
+	volver(){
+		this.quitarErrores()
+		this.controlador.pulsarHeadCons()
+	}
+	quitarErrores(){
+		this.h3Error2.style.display='none'
+		this.h3Error1.style.display='none'
+		this.lbNombre.style.color='white'
+		this.lbTalla.style.color='white'
+		this.lbDia.style.color='white'
+		this.lbDescripcion.style.color='white'
+		this.lbEstacion.style.color='white'
 	}
 }

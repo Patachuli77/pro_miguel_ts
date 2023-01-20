@@ -127,6 +127,7 @@ class Controlador{
 	/*BUSCAR*/
 	buscar(texto){
 		this.modelo.buscar(texto,this.listarOK.bind(this))	
+		this.pulsarHeadList()
 	}
 	/*BORRAR*/
 	borrado(id){

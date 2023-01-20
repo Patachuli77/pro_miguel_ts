@@ -26,22 +26,16 @@ header{
     height: 10vh;
 }
 header a.logo{
-    width:11.52852529601722%;
+    width:200px;
+    flex-shrink: 0;
 }
 header a.logo img{
     width: 100%;
     height: auto;
 }
-header div#buscar{
-    width: 40%;
-    text-align: center;
-}
-header input[type="text"]{
-    height: auto;
-    width: 85%;
-}
 header div.resaltado{
     padding: 10px;
+    flex-shrink: 1;
 }
 header div.resaltado h1{
     color: white ;
@@ -56,6 +50,26 @@ main{
     flex-direction: column;
 }
 /***********LISTADO***********/
+/*Inicio Primero*/
+div#inicio{
+    display: flex;
+    flex-direction: column;
+   justify-content:center;
+   text-align: center;
+   margin-top: 30vh;
+}
+div#inicio button{
+   
+    align-self: center;
+    margin-top: 1vh;
+    width: 40%;
+    height: 4vh;
+    background-color: #856DE8;
+    color:white;
+    border:none;
+}
+
+
 /*Grid de ropa*/
 div#gridRopa{
     padding:5px;
@@ -165,6 +179,42 @@ main#consulta div.botones span#volver{
 main#consulta div.botones span#editar{
     background-color: lightgreen;
 }
+/*Busqueda*/
+div#buscar{
+    display: flex;
+    flex-direction: column;
+   justify-content:center;
+   text-align: center;
+   margin-top: 30vh;
+}
+div#buscar button{
+    align-self: center;
+    margin-top: 1vh;
+    width: 40%;
+    height: 4vh;
+    background-color: #856DE8;
+    color:white;
+    border:none;
+
+}
+div#buscar input{
+    align-self: center;
+    margin-top: 1vh;
+    width: 40%;
+    height: 4vh;
+}
+
+
+
+
+
+
+/*Especiales y errores**/
 #listado,#edicion,#alta,#consulta,#busqueda{
     display: none;
 }
+h3.error{
+    color:red;
+    display: none;
+}
+

@@ -6,14 +6,17 @@ export class VistaBusq extends Vista{
 		
 		this.btnListar = this.div.getElementsByTagName('button')[0]
 		this.btnListar.onclick = this.buscar.bind(this)
-
+		
 	}
 	buscar(){
 
-		this.texto= this.div.getElementsByTagName('input')[0].value
+		this.texto= this.div.getElementsByTagName('input')[0]
 		
-		this.controlador.buscar(this.texto)
-		
+		this.controlador.buscar(this.texto.value)
+		this.limpiar()
+	}
+	limpiar(){
+		this.texto.value=''
 	}
 
 }
