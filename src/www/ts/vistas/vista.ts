@@ -3,14 +3,15 @@
  * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
 export class Vista{
-    public div: 
-	constructor(div){
+    public div: HTMLDivElement;
+	
+	constructor(div:HTMLDivElement){
 		this.div = div 
 	}/**
 	 * Metodo que muestra o no las vistas
 	 * @param {boolean} ver 
 	 */
-	mostrar(ver){
+	mostrar(ver:boolean){
 		if(ver)
 			this.div.style.display = 'flex'
 		else
