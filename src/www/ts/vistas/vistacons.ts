@@ -3,8 +3,13 @@
  * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
 import {Vista} from './vista.js'
+import {Controlador} from '../controlador/app.js'
 export class VistaCons extends Vista{
-	constructor(controlador, div){
+	public controlador: Controlador;
+	public div: HTMLDivElement;
+	private btnEditar: HTMLElement;
+	private btnVolver: HTMLElement;
+	constructor(controlador:Controlador, div:HTMLDivElement){
 		super(div)
 		this.controlador = controlador
 		
@@ -17,7 +22,7 @@ export class VistaCons extends Vista{
 	 * Metodo que mete los datos del objeto dentro de su sitio en la vista para poder visualizarlos
 	 * @param {object} ropa 
 	 */
-	mostrarDatos(ropa){
+	mostrarDatos(ropa:any){
 		let cadena = ''
 		if(ropa.estacion[0]==true){
 			cadena+='Primavera, '}

@@ -2,8 +2,15 @@
  * @file Contiene el controlador principal de la aplicación
  * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
+import {Controlador} from '../controlador/app.js'
 export class VistaHead{
-	constructor(controlador, head){
+	public controlador: Controlador;
+	public head: HTMLHeadElement;
+	public aListar: HTMLElement;
+	public h1Alta: HTMLDivElement;
+	public btnBuscar: HTMLDivElement;
+
+	constructor(controlador:Controlador, head:HTMLHeadElement){
 		this.controlador = controlador
 		this.head = head
 		

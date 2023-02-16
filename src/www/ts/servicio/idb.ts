@@ -4,6 +4,10 @@
  */
 
 export class Idb{
+	public conexion: IDBDatabase;
+	//public evento: any;
+	public resultados: Array<any>;
+	public result: object;
 	constructor(){
 		const peticion = indexedDB.open('bd1', 2)
 		peticion.onerror = evento => {throw 'Error al conectar indexedDB'}
@@ -130,7 +134,7 @@ export class Idb{
             
 
             const peticion2 = objectStore.put(data)
-            this.listar()
+            //this.listar()
             peticion2.onerror =(event) =>{
                 console.log('No se pudo actualizar')
                 

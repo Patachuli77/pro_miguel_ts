@@ -13,6 +13,16 @@ import { VistaCons } from '../vistas/vistacons.js'
 import{VistaBusq} from '../vistas/vistabusq.js'
 
 export class Controlador{
+	public modelo: Modelo;
+	private head: HTMLHeadElement;
+	
+
+	private vistaHead: VistaHead;
+	private mainList: VistaList;
+	private mainEdit: VistaEdit;
+	private mainAlta: VistaAlta;
+	private mainCons: VistaCons;
+	private mainBusq: VistaBusq;
 	/**
 	 * Constructor de la clase
 	 */
@@ -23,24 +33,16 @@ export class Controlador{
 	 * Inicializa la aplicaion
 	 */
 	iniciar(){
-		this.modelo = new Modelo()
+		this.modelo = new Modelo(this)
 		
 		this.head = document.getElementsByTagName('header')[0]
-		this.mainList = document.getElementById('listado')
-		this.mainEdit = document.getElementById('edicion')
-		this.mainAlta = document.getElementById('alta')
-        this.mainCons = document.getElementById('consulta')
-		this.mainBusq = document.getElementById('busqueda')
-
-
-		
-		
+	
 		this.vistaHead = new VistaHead(this,this.head)
-		this.mainList = new VistaList(this, this.mainList)
-		this.mainEdit = new VistaEdit(this, this.mainEdit)
-		this.mainAlta = new VistaAlta(this,this.mainAlta)
-        this.mainCons = new VistaCons(this, this.mainCons)
-		this.mainBusq = new VistaBusq(this, this.mainBusq)
+		this.mainList = new VistaList(this, <HTMLDivElement>document.getElementById('listado'))
+		this.mainEdit = new VistaEdit(this, <HTMLDivElement>document.getElementById('edicion'))
+		this.mainAlta = new VistaAlta(this, <HTMLDivElement>document.getElementById('alta'))
+        this.mainCons = new VistaCons(this, <HTMLDivElement>document.getElementById('consulta'))
+		this.mainBusq = new VistaBusq(this, <HTMLDivElement>document.getElementById('busqueda'))
 		
 		
 		this.mainList.mostrar(true)

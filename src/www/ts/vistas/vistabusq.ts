@@ -3,8 +3,15 @@
  * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
 import {Vista} from './vista.js'
+import {Controlador} from '../controlador/app.js'
 export class VistaBusq extends Vista{
-	constructor(controlador, div){
+	public div: HTMLDivElement;
+	public controlador: Controlador;
+
+	private texto: HTMLInputElement;
+
+	private btnListar: HTMLElement;
+	constructor(controlador: Controlador, div: HTMLDivElement){
 		super(div)
 		this.controlador = controlador
 		

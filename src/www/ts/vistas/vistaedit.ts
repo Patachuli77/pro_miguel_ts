@@ -4,8 +4,42 @@
  */
 import {Vista} from './vista.js'
 import {Ropa} from '../modelo/ropa.js'
+import {Controlador} from '../controlador/app.js'
 export class VistaEdit extends Vista{
-	constructor(controlador, div){
+	public controlador: Controlador;
+	public div: HTMLDivElement;
+
+	private nombre: HTMLInputElement;
+	private talla : HTMLInputElement;
+	private dia : HTMLInputElement;
+	private descripcion : HTMLTextAreaElement;
+	private tipo : HTMLSelectElement;
+	private op1: HTMLOptionElement;
+	private op2: HTMLOptionElement;
+	private op3: HTMLOptionElement;
+	private op4: HTMLOptionElement;
+
+	private pri : HTMLInputElement;
+	private ver : HTMLInputElement;
+	private oto : HTMLInputElement;
+	private inv : HTMLInputElement;
+
+	private lbNombre : HTMLElement;
+	private lbTalla : HTMLElement;
+	private lbDia : HTMLElement;
+	private lbDescripcion : HTMLElement;
+	private lbEstacion : HTMLElement;
+
+	private h3Error1 : HTMLElement;
+	private h3Error2 : HTMLElement;
+
+	private btnBorrar: HTMLElement;
+	private btnEditar: HTMLElement;
+	private btnVolver: HTMLElement;
+
+	private id: string;
+
+	constructor(controlador:Controlador, div:HTMLDivElement){
 		super(div)
 		this.controlador = controlador
 		
@@ -110,14 +144,14 @@ export class VistaEdit extends Vista{
 		let tipo = this.tipo.value
 		let valArray = true
 		
-		let array = []
+		let array:boolean[] = []
 		array.push(this.pri.checked,this.ver.checked,this.oto.checked,this.inv.checked)
 		console.log(array[0],array[1],array[2],array[3])
 		if(array[0]==false && array[1]==false && array[2]==false&& array[3]==false){
 			valArray= false
 		}
 		
-		if (nombre=='' || talla==''||talla<0 || dia=='' || descripcion=='' || valArray==false){
+		if (nombre=='' || talla==''||parseInt(talla)<0 || dia=='' || descripcion=='' || valArray==false){
 			if (nombre==''){
 				this.h3Error1.style.display='block'
 				this.lbNombre.style.color='red'
@@ -138,7 +172,7 @@ export class VistaEdit extends Vista{
 				this.h3Error1.style.display='block'
 				this.lbEstacion.style.color='red'
 			} 
-			if (talla<0){
+			if (parseInt(talla)<0){
 				this.h3Error2.style.display='block'
 				this.lbTalla.style.color='red'
 			} 	

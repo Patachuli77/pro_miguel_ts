@@ -3,10 +3,12 @@
  * @author	Jorge Ortega <jorge77.ortega@gmail.com>
  */
 import {Idb} from "../servicio/idb.js"
-
+import {Controlador} from '../controlador/app.js'
 
 export class Modelo{
-    constructor(controlador){
+    public controlador: Controlador;
+    public idb: Idb;
+    constructor(controlador: Controlador){
        this.controlador= controlador
        this.idb = new Idb()
 	}

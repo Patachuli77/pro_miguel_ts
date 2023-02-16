@@ -53,7 +53,7 @@ export class VistaAlta extends Vista{
 		this.formNombre= this.div.getElementsByTagName("input")[1]
 		this.formTalla = this.div.getElementsByTagName("input")[2]
 		this.formDia = this.div.getElementsByTagName("input")[3]
-		this.formDescripcion = this.div.getElementsByTagName("textArea")[0]
+		this.formDescripcion = <HTMLTextAreaElement>this.div.getElementsByTagName("textArea")[0]/*<>*/
 		this.formTipo = this.div.getElementsByTagName("select")[0]
 		this.op1=this.div.getElementsByTagName('option')[0]
 		this.op2=this.div.getElementsByTagName('option')[1]
@@ -84,7 +84,7 @@ export class VistaAlta extends Vista{
 	 * Metodo que valida los datos y los envia o no al alta dependiendo del resultado
 	 * @param {int} num depende de por donde se llegue al metodo el resultado varia
 	 */
-	validar(num){
+	validar(num:number){
 
 		let imagenSrc= "../../src/www/assets/imagenes/camiseta1.jpg"//IGNORAR POR EL MOMENTO
 		let nombre = this.formNombre.value
