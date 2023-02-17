@@ -8,14 +8,17 @@ export class Idb{
 	//public evento: any;
 	public resultados: Array<any>;
 	public result: object;
+	public listado:Array<any>;
 	constructor(){
+
+
 		const peticion = indexedDB.open('bd1', 2)
 		peticion.onerror = evento => {throw 'Error al conectar indexedDB'}
-		peticion.onupgradeneeded = evento => {
+		peticion.onupgradeneeded = (evento:any) => {
 			this.conexion = evento.target.result
 			this.crear()
         	}
-		peticion.onsuccess = evento => {this.conexion = evento.target.result}
+		peticion.onsuccess = (evento:any) => {this.conexion = evento.target.result}
 	}/**
 	 * Metodo que crea la tabla
 	 */
@@ -41,8 +44,8 @@ export class Idb{
 			const peticion = objectStore.getAll()
 			peticion.onsuccess=function(){
 				let lista= peticion.result
-				this.listado=lista
-				callback(this.listado)
+				let listado=lista
+				callback(listado)
 			}
 	}/**
 	 * Metodo que devuelve una lista con los resultados de la busqueda de texto
@@ -55,7 +58,7 @@ export class Idb{
 		this.resultados = []
 
 		const cursor1 = objectStore.openCursor()
-		cursor1.onsuccess = (evento) => {
+		cursor1.onsuccess = (evento:any) => {
 			const cursor = evento.target.result;
 			if (cursor) {
 				let ropa = cursor.value
@@ -81,7 +84,7 @@ export class Idb{
 		const objectStore = this.conexion.transaction("tabla1","readonly").objectStore("tabla1");
 		this.result 
 		const cursor1 = objectStore.openCursor()
-		cursor1.onsuccess = (evento) => {
+		cursor1.onsuccess = (evento:any) => {
 			const cursor = evento.target.result;
 			if (cursor) {
 				let ropa = cursor.value
@@ -121,7 +124,7 @@ export class Idb{
         peticion.onerror=(event) =>{
             console.log('Falló la lectura')
         }
-        peticion.onsuccess=(event) =>{
+        peticion.onsuccess=(event:any) =>{
             const data = event.target.result
             console.log('Leído', data)
            
